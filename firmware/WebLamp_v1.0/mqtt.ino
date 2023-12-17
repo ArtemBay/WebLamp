@@ -72,6 +72,7 @@ void sendPacket() {
   winkFlag = 0;
   // отправляем
   mqtt.publish(data.remote, s.c_str());
+  mqtt.publish("API", s.c_str());
 }
 
 void heartbeat() {

@@ -1,4 +1,5 @@
 // подмигнуть
+
 void wink() {
   if (data.power) {
     brightLoop(data.bright, 0, 20);
@@ -16,7 +17,7 @@ void brightLoop(int from, int to, int step) {
   for (;;) {
     FastLED.setBrightness(val);
     FastLED.show();
-    delay(10);
+    delay(30);
     if (from > to) {
       val -= step;
       if (val < to) return;

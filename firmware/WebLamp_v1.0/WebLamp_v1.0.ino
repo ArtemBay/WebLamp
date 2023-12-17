@@ -11,10 +11,10 @@
 #define LED_PIN D1    // пин ленты
 #define BTN_PIN D2    // пин кнопки
 #define PIR_PIN D5    // пин PIR (ИК датчика)
-#define LED_AMOUNT 30 // кол-вл светодиодов
-#define BTN_LEVEL 1   // 1 - кнопка подключает VCC, 0 - подключает GND
-#define USE_PIR 1     // 1 - использовать PIR (ИК датчик) на этой лампе
-#define IGNORE_PIR 0  // 1 - игнорировать сигнал PIR (ИК датчика) с удалённой лампы
+#define LED_AMOUNT 22 // кол-вл светодиодов
+#define BTN_LEVEL 0   // 1 - кнопка подключает VCC, 0 - подключает GND
+#define USE_PIR 0     // 1 - использовать PIR (ИК датчик) на этой лампе
+#define IGNORE_PIR 1  // 1 - игнорировать сигнал PIR (ИК датчика) с удалённой лампы
 
 /*
   Запуск:
@@ -26,9 +26,10 @@
   - Мигает синим: запущена точка доступа WLamp <IP>
 
   Работа:
-  1 клик: вкл/выкл
+  1 клик: вкл/выкл локальную лампу
   2 клика: сменить цвет
-  3 клика: подмигнуть
+  3 клик: вкл/выкл локальную и удаленную лампу
+  4 клика: подмигнуть
   Удержание: сменить яркость
 */
 
@@ -56,16 +57,16 @@
 #endif
 
 struct LampData {
-  char ssid[32] = "";
-  char pass[32] = "";
-  char local[20] = "AG_lamp_1";
-  char remote[20] = "AG_lamp_2";
+  char ssid[32] = "<Wifi Name>";
+  char pass[32] = "<Wifi Pass>";
+  char local[20] = "<First lamp>";
+  char remote[20] = "<Second lamp>";
   char host[32] = "broker.mqttdashboard.com";
   uint16_t port = 1883;
   uint8_t ip[4] = {0, 0, 0, 0};
 
   bool power = 1;
-  uint8_t bright = 50;
+  uint8_t bright = 10;
   uint8_t color = 0;
 };
 

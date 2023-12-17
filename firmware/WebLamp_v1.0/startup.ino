@@ -11,6 +11,7 @@ void startup() {
   IPAddress ip = IPAddress(data.ip[0], data.ip[1], data.ip[2], data.ip[3]);
 
   // запускаем ленту
+  FastLED.setMaxPowerInVoltsAndMilliamps(5, 500);
   FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, LED_AMOUNT).setCorrection(TypicalLEDStrip);
   FastLED.setBrightness(50);
   FastLED.show();

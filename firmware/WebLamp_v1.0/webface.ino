@@ -12,8 +12,6 @@ void build() {
   add.LABEL("Remote:");
   add.LED_GREEN("ledR", !onlineTmr.elapsed());
   add.BREAK();
-  add.LABEL("Remote PIR:");
-  add.LED_RED("ledP", (!pirTmr.elapsed() && !onlineTmr.elapsed()));
   add.BLOCK_END();
 
   add.LABEL("SETTINGS");
